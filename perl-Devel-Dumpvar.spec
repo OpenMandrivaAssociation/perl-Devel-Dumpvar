@@ -1,6 +1,6 @@
 
 %define realname   Devel-Dumpvar
-%define version    0.04
+%define version    1.05
 %define release    %mkrel 1
 
 Name:       perl-%{realname}
