@@ -1,23 +1,21 @@
+%define upstream_name    Devel-Dumpvar
+%define upstream_version 1.05
 
-%define realname   Devel-Dumpvar
-%define version    1.05
-%define release    %mkrel 1
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
 Summary:    A pure-OO reimplementation of dumpvar.pl
-Source:     http://www.cpan.org/modules/by-module/Devel/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Devel/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(File::Spec)
 BuildRequires: perl(Scalar::Util)
 BuildRequires: perl(Test::More)
-
 BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Most perl dumping modules are focused on serializing data structures into a
@@ -37,7 +35,7 @@ dedicated hooks from and to the debugger, and spans across multiple
 namespaces, including main::.
 
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -58,5 +56,4 @@ rm -rf %buildroot
 %doc README LICENSE Changes
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
 
