@@ -1,15 +1,13 @@
 %define upstream_name    Devel-Dumpvar
-%define upstream_version 1.06
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	1.06
+Release:	7
 
 Summary:	A pure-OO reimplementation of dumpvar.pl
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://svn.ali.as/cpan/trunk/Devel-Dumpvar
-Source0:	https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Devel-Dumpvar-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Devel-Dumpvar-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -36,7 +34,7 @@ dedicated hooks from and to the debugger, and spans across multiple
 namespaces, including main::.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -64,8 +62,7 @@ make test
 
 * Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 1.50.0-1mdv2010.0
 + Revision: 401667
-- rebuild using %%perl_convert_version
-- fixed license field
+- rebuild using %1.06 fixed license field
 
 * Wed May 20 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.05-1mdv2010.0
 + Revision: 377989
